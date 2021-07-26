@@ -15,8 +15,6 @@ defmodule SwagSouls.Application do
       SwagSoulsWeb.Endpoint,
       # Start the Game
       SwagSouls.Game,
-      # Start LiveView monitor
-      SwagSoulsWeb.LiveMonitor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

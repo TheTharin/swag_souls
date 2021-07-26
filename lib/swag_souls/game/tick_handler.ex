@@ -3,7 +3,7 @@ defmodule SwagSouls.Game.TickHandler do
 
   alias SwagSouls.Game
 
-  @tickrate 60
+  @tickrate 10
 
   def start_link(_) do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__)

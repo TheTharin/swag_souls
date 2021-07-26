@@ -6,13 +6,13 @@ defmodule SwagSoulsWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    SwagSoulsWeb.Endpoint.subscribe("game_updates")
     {:ok, assign(socket, name: nil)}
   end
 
   @impl true
   def handle_params(%{"name" => name}, _uri, socket) do
     Game.add_player(name)
+    SwagSoulsWeb.Endpoint.subscribe("game_updates")
     {:noreply, assign(socket, name: name, map: get_game_state())}
   end
 
@@ -62,7 +62,9 @@ defmodule SwagSoulsWeb.PageLive do
   @impl true
   def handle_info(%{event: "update_map_state", payload: new_map_state}, socket) do
     {:noreply,
-     push_patch(assign(socket, map: new_map_state), to: Routes.live_path(socket, SwagSoulsWeb.PageLive), replace: true)}
+     push_patch(assign(socket, map: new_map_state),
+                to: Routes.live_path(socket, SwagSoulsWeb.PageLive),
+                replace: true)}
   end
 
   defp get_game_state() do

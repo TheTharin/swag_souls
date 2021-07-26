@@ -1,14 +1,15 @@
 defmodule PlayerSpriteComponent do
-  use SwagSoulsWeb, :live_component
+  use Surface.Component
 
+  prop player_state, :atom, required: true
   def render(assigns) do
-    case Map.get(assigns, :player).state do
-      :alive -> ~L"""
-                <img class="sprite" id="playerSprite" src="/images/player_sprite.png" width=100px height=100px/>
-                """
-      :dead  -> ~L"""
-                <img class="sprite" id="playerSprite" src="/images/player_dead_sprite.png" width=100px height=100px/>
-                """
-    end
+    ~F"""
+    {#case @player_state}
+      {#match :alive}
+        <img class="sprite" id="playerSprite" src="/images/player_sprite.png" width="100px" height="100px"/>
+      {#match :dead}
+        <img class="sprite" id="playerSprite" src="/images/player_dead_sprite.png" width="100px" height="100px"/>
+    {/case}
+    """
   end
 end

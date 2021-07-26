@@ -1,9 +1,11 @@
 defmodule WallTileComponent do
-  use SwagSoulsWeb, :live_component
+  use Surface.Component
+
+  prop id, :string, required: true
 
   def render(assigns) do
-    ~L"""
-    <div class="gameTile wallTile" id="<%= elem(@coordinates, 0) %>_<%= elem(@coordinates, 1) %>">
+    ~F"""
+    <div class="gameTile wallTile" id={@id}>
     </div>
     """
   end

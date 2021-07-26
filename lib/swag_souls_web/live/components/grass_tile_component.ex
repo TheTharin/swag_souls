@@ -1,16 +1,22 @@
 defmodule GrassTileComponent do
-  use SwagSoulsWeb, :live_component
+  use Surface.Component
+
+  prop players, :list, required: false
+  prop id, :string, required: true
+  prop name, :string, required: true
 
   def render(assigns) do
-    ~L"""
-    <div class="gameTile grassTile" id="<%= elem(@coordinates, 0) %>_<%= elem(@coordinates, 1) %>">
-      <%= for player <- @players do %>
-        <%= if player.name == @name do %>
-          <%= live_component PlayerSpriteComponent, player: player %>
-        <% else %>
-          <%= live_component EnemySpriteComponent, player: player %>
-        <% end %>
-      <% end %>
+    ~F"""
+    <div class="gameTile grassTile" id={@id}>
+      {#if @players}
+        {#for player <- @players}
+          {#if @name == player.name}
+            <PlayerSpriteComponent player_state={player.state}/>
+          {#else}
+            <EnemySpriteComponent player_name={player.name} player_state={player.state}/>
+          {/if}
+        {/for}
+      {/if}
     </div>
     """
   end

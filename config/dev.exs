@@ -21,7 +21,8 @@ config :swag_souls, SwagSoulsWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/swag_souls_web/(live|views)/.*(ex)$",
-      ~r"lib/swag_souls_web/templates/.*(eex)$"
+      ~r"lib/swag_souls_web/templates/.*(eex)$",
+      ~r"lib/swag_souls_web/live/.*(sface)$"
     ]
   ]
 

@@ -14,7 +14,7 @@ defmodule SwagSouls.Application do
       # Start the Endpoint (http/https)
       SwagSoulsWeb.Endpoint,
       # Start the Game
-      SwagSouls.Game,
+      SwagSouls.Game
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

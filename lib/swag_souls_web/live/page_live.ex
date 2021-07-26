@@ -61,7 +61,8 @@ defmodule SwagSoulsWeb.PageLive do
 
   @impl true
   def handle_info(%{event: "update_map_state", payload: new_map_state}, socket) do
-    {:noreply, assign(socket, map: new_map_state)}
+    {:noreply,
+     push_patch(assign(socket, map: new_map_state), to: Routes.live_path(socket, SwagSoulsWeb.PageLive), replace: true)}
   end
 
   defp get_game_state() do

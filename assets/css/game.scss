@@ -1,0 +1,60 @@
+#gameWindow {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameTilesRow {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.gameTile {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.wallTile {
+  background-image: url("/images/wall_tile.png");
+  background-size: 100px;
+}
+
+.grassTile {
+  background-image: url("/images/grass_tile.png");
+  background-size: 100px;
+}
+
+#playerSprite {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#enemySprite {
+  z-index: 1;
+  position: relative;
+}
+
+.name {
+  font-size: 1.5em;
+  font-style: bold;
+  z-index: 99;
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, -0%);
+}
+
+.enemyName {
+  color: crimson;
+}
+
+.deadEnemyName {
+  color: black;
+}
